@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+public class Main
+{
+    public static int maxCuts(int n, int a,int b, int c){
+        if (n == 0)return 0;
+        if (n<0) return -1;
+        int resA = maxCuts(n -a,a,b,c);
+        int resB = maxCuts(n -b,a,b,c);
+        int resc = maxCuts(n -c,a,b,c);
+        
+        int result = Math.max(resA, Math.max(resB,resc));
+        if(result == -1)return -1;
+        return +1;
+        
+    }
+    public static void main (String[]args){
+        int N = 13;
+        int a = 5;
+        int b = 3;
+        int c = 2;
+        
+        int ans = maxCuts(N,a,b,c);
+        System.out.println(ans);
+    }
+}
